@@ -20,7 +20,7 @@ var renderCloud = function (ctx, x, y, color) {
 var getMaxElement = function (arr) {
   var maxElement = arr[0];
 
-  for ( var i = 0; i < arr.length; i++ ) {
+  for (var i = 0; i < arr.length; i++) {
     if (arr[i] > maxElement) {
       maxElement = arr[i];
     }
@@ -43,8 +43,8 @@ var renderStatistics = function (ctx, names, times) {
   ctx.fillText('Ура вы победили!', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP);
   ctx.fillText('Список результатов:', CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP * 2);
 
-  for ( var i = 0; i < names.length; i++) {
-    if ( names[i] === 'Вы') {
+  for (var i = 0; i < names.length; i++) {
+    if (names[i] === 'Вы') {
       color = YOUR_COLOR;
     } else {
       var sat = Math.random() * 100;
