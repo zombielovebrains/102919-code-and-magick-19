@@ -46,6 +46,7 @@ var renderHeader = function (ctx, strings) {
   ctx.fillStyle = '#000';
   ctx.font = 'bold 16px PT Mono';
   ctx.textBaseline = 'hanging';
+  ctx.textAlign = 'left';
 
   for (var i = 0; i < strings.length; i++) {
     ctx.fillText(strings[i], CLOUD_X + FONT_GAP, CLOUD_Y + FONT_GAP * (i + 1));
