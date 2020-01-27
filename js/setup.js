@@ -1,6 +1,6 @@
 'use strict';
 
-var WIZARD_COUNT = 4;
+var WIZARDS_COUNT = 4;
 var names = ['Иван ', 'Хуан Себастьян ', 'Мария ', 'Кристоф ', 'Виктор ', 'Юлия ', 'Люпита ', 'Вашингтон '];
 var lastNames = ['да Марья', 'Верон', 'Мирабелла', 'Вальц', 'Онопко', 'Топольницкая', 'Нионго', 'Ирвинг'];
 var coatColors = ['rgb (101, 137, 164)', 'rgb (241, 43, 107)', 'rgb (146, 100, 161)', 'rgb (56, 159, 117)', 'rgb (215, 210, 55)', 'rgb (0, 0, 0)'];
@@ -19,7 +19,7 @@ var getRandom = function (arr) {
 
 var createWizards = function () { // Создаёт массив с объектами волшебников
   var wizards = [];
-  for (var i = 0; i < WIZARD_COUNT; i++) {
+  for (var i = 0; i < WIZARDS_COUNT; i++) {
     var wizard = {
       name: names[getRandom(names)] + lastNames[getRandom(lastNames)],
       coatColor: coatColors[getRandom(coatColors)],
@@ -45,7 +45,7 @@ var wizards = createWizards(); // Генерируем массив волшеб
 
 for (var i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
-};
+}
 similarListElement.appendChild(fragment);
 
 userConfig.querySelector('.setup-similar').classList.remove('hidden');
