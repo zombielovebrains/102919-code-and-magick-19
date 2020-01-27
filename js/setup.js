@@ -40,7 +40,7 @@ var renderWizard = function (wizard) { // Заполняет шаблон дан
   return wizardElement;
 };
 
-var generateWizardFragment= function () { // Генерируем фрагмент с заполненными шаблонами волшебников
+var generateWizardFragment = function () { // Генерируем фрагмент с заполненными шаблонами волшебников
   var fragment = document.createDocumentFragment();
   var wizards = createWizards(); // Генерируем массив волшебников
 
