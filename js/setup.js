@@ -40,12 +40,17 @@ var renderWizard = function (wizard) { // Заполняет шаблон дан
   return wizardElement;
 };
 
-var fragment = document.createDocumentFragment();
-var wizards = createWizards(); // Генерируем массив волшебников
+var generateWizardFragment= function () { // Генерируем фрагмент с заполненными шаблонами волшебников
+  var fragment = document.createDocumentFragment();
+  var wizards = createWizards(); // Генерируем массив волшебников
 
-for (var i = 0; i < wizards.length; i++) {
-  fragment.appendChild(renderWizard(wizards[i]));
-}
-similarListElement.appendChild(fragment);
+  for (var i = 0; i < wizards.length; i++) {
+    fragment.appendChild(renderWizard(wizards[i]));
+  }
+  return fragment;
+};
+
+
+similarListElement.appendChild(generateWizardFragment());
 
 userConfig.querySelector('.setup-similar').classList.remove('hidden');
