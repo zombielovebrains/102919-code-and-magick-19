@@ -17,7 +17,7 @@ var getRandom = function (arr) {
   return index;
 };
 
-var createWizards = function () {  // Создаёт массив с объектами волшебников
+var createWizards = function () { // Создаёт массив с объектами волшебников
   var wizards = [];
   for (var i = 0; i < WIZARD_COUNT; i++) {
     var wizard = {
@@ -38,14 +38,14 @@ var renderWizard = function (wizard) { // Заполняет шаблон дан
   wizardElement.querySelector('.wizard-eyes').style.fill = wizard.eyesColor;
 
   return wizardElement;
-}
+};
 
 var fragment = document.createDocumentFragment();
 var wizards = createWizards(); // Генерируем массив волшебников
 
 for (var i = 0; i < wizards.length; i++) {
   fragment.appendChild(renderWizard(wizards[i]));
-}
+};
 similarListElement.appendChild(fragment);
 
 userConfig.querySelector('.setup-similar').classList.remove('hidden');
