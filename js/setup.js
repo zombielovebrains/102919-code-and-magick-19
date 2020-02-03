@@ -15,7 +15,6 @@ var buttonOpenSetup = document.querySelector('.setup-open');
 var buttonCloseSetup = userConfig.querySelector('.setup-close');
 var iconOpenSetup = buttonOpenSetup.querySelector('.setup-open-icon');
 var wizardName = userConfig.querySelector('.setup-title');
-var buttonSubmitSetup = userConfig.querySelector('.setup-submit');
 
 var wizardCoat = userConfig.querySelector('.wizard-coat');
 var wizardEyes = userConfig.querySelector('.wizard-eyes');
@@ -46,9 +45,7 @@ fireball.addEventListener('click', function () {
 });
 
 var closeByEsc = function (evt) {
-  if (wizardName === document.activeElement()) {
-    return evt;
-  } else if (evt.keyCode === ESC_CODE) {
+  if (evt.keyCode === ESC_CODE && wizardName !== document.activeElement()) {
     closeSetup();
   }
 };
