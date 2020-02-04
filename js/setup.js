@@ -14,7 +14,7 @@ var setupForm = userConfig.querySelector('.setup-wizard-form');
 var buttonOpenSetup = document.querySelector('.setup-open');
 var buttonCloseSetup = userConfig.querySelector('.setup-close');
 var iconOpenSetup = buttonOpenSetup.querySelector('.setup-open-icon');
-var wizardName = userConfig.querySelector('.setup-title');
+var wizardNameInput = userConfig.querySelector('.setup-user-name');
 
 var wizardCoat = userConfig.querySelector('.wizard-coat');
 var wizardEyes = userConfig.querySelector('.wizard-eyes');
@@ -44,39 +44,39 @@ fireball.addEventListener('click', function () {
   setupForm.querySelector('input[name="fireball-color"]').value = changeBackgroundColor(fireball, fireballColors);
 });
 
-var buttonCloseByEscHandler = function (evt) {
-  if (evt.keyCode === ESC_CODE && wizardName !== document.activeElement()) {
+var keyEscCloseHandler = function (evt) {
+  if (evt.keyCode === ESC_CODE && wizardNameInput !== document.querySelector(':focus')) {
     closeSetup();
   }
 };
 
-var buttonOpenSetupHandler = function () {
+var openSetup = function () {
   userConfig.classList.remove('hidden');
-  document.addEventListener('keydown', closeByEsc);
+  document.addEventListener('keydown', keyEscCloseHandler);
 };
 
-var buttonCloseSetupHandler = function () {
+var closeSetup = function () {
   userConfig.classList.add('hidden');
-  document.removeEventListener('keydown', closeByEsc);
+  document.removeEventListener('keydown', keyEscCloseHandler);
 };
 
 buttonOpenSetup.addEventListener('click', function () {
-  buttonOpenSetupHandler();
+  openSetup();
 });
 
 iconOpenSetup.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_CODE) {
-    buttonOpenSetupHandler();
+    openSetup();
   }
 });
 
 buttonCloseSetup.addEventListener('click', function () {
-  buttonCloseSetupHandler();
+  closeSetup();
 });
 
 buttonCloseSetup.addEventListener('keydown', function (evt) {
   if (evt.keyCode === ENTER_CODE || evt.keyCode === ESC_CODE) {
-    buttonCloseSetupHandler();
+    closeSetup();
   }
 });
 
