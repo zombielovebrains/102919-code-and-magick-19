@@ -44,44 +44,40 @@ fireball.addEventListener('click', function () {
   setupForm.querySelector('input[name="fireball-color"]').value = changeBackgroundColor(fireball, fireballColors);
 });
 
-var closeByEsc = function (evt) {
+var buttonCloseByEscHandler = function (evt) {
   if (evt.keyCode === ESC_CODE && wizardName !== document.activeElement()) {
     closeSetup();
   }
 };
 
-var openSetup = function () {
+var buttonOpenSetupHandler = function () {
   userConfig.classList.remove('hidden');
   document.addEventListener('keydown', closeByEsc);
 };
 
-var closeSetup = function () {
+var buttonCloseSetupHandler = function () {
   userConfig.classList.add('hidden');
   document.removeEventListener('keydown', closeByEsc);
 };
 
 buttonOpenSetup.addEventListener('click', function () {
-  openSetup();
+  buttonOpenSetupHandler();
 });
 
-iconOpenSetup.addEventListener('focus', function () {
-  document.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_CODE) {
-      openSetup();
-    }
-  });
+iconOpenSetup.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_CODE) {
+    buttonOpenSetupHandler();
+  }
 });
 
 buttonCloseSetup.addEventListener('click', function () {
-  closeSetup();
+  buttonCloseSetupHandler();
 });
 
-buttonCloseSetup.addEventListener('focus', function () {
-  document.addEventListener('keydown', function (evt) {
-    if (evt.keyCode === ENTER_CODE || evt.keyCode === ESC_CODE) {
-      closeSetup();
-    }
-  });
+buttonCloseSetup.addEventListener('keydown', function (evt) {
+  if (evt.keyCode === ENTER_CODE || evt.keyCode === ESC_CODE) {
+    buttonCloseSetupHandler();
+  }
 });
 
 var similarListElement = document.querySelector('.setup-similar-list');
